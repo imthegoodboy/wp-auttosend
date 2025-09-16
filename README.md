@@ -19,15 +19,6 @@ A simple script to send repeated messages on WhatsApp Web automatically using th
 
 ---
 
-## Features
-
-- Stylish prompts with ASCII art.  
-- Error handling for empty inputs.  
-- Allows user to **cancel** at any prompt.  
-- Fully customizable message, count, and interval.  
-
----
-
 ## Disclaimer
 
 - Use this script **responsibly**. Sending spam messages may **violate WhatsApp rules** and result in your account being restricted or banned.  
@@ -36,6 +27,4 @@ A simple script to send repeated messages on WhatsApp Web automatically using th
 
 ---
 
-## Author
-
-**Made by Nikku**
+##**Made by Nikku**
