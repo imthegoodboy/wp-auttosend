@@ -1,11 +1,38 @@
-// Ask user for message
-let messageText = prompt("Enter the message you want to send:");
+// Function to prompt with retry on empty input
+function promptWithValidation(message, title = "Input Required") {
+    let input;
+    do {
+        input = prompt(`╔════════════════════════╗
+║  ${title}  ║
+╚════════════════════════╝
+${message}`);
+        if(input === null || input.trim() === "") {
+            alert("⚠️ Please enter a valid value!");
+        }
+    } while(input === null || input.trim() === "");
+    return input.trim();
+}
 
-// Ask user how many times to send
-let repeatCount = parseInt(prompt("How many times do you want to send the message?"));
+// ASCII Art for first prompt
+let asciiArt = `
+          $$\\ $$\\       $$\\                 
+          \\__|$$ |      $$ |                
+$$$$$$$\\  $$\\ $$ |  $$\\ $$ |  $$\\ $$\\   $$\\ 
+$$  __$$\\ $$ |$$ | $$  |$$ | $$  |$$ |  $$ |
+$$ |  $$ |$$ |$$$$$$  / $$$$$$  / $$ |  $$ |
+$$ |  $$ |$$ |$$  _$$<  $$  _$$<  $$ |  $$ |
+$$ |  $$ |$$ |$$ | \\$$\\ $$ | \\$$\\ \\$$$$$$  |
+\\__|  \\__|\\__|\\__|  \\__|\\__|  \\__| \\______/ 
+`;
 
-// Ask user for interval between messages in milliseconds
-let intervalTime = parseInt(prompt("Enter interval time between messages (in milliseconds, e.g., 500):"));
+// 1. Ask user for message with ASCII art
+let messageText = promptWithValidation(`${asciiArt}\nEnter the message you want to send:`, "Message Sender");
+
+// 2. Ask user how many times to send
+let repeatCount = parseInt(promptWithValidation("How many times do you want to send the message?", "Message Sender"));
+
+// 3. Ask user for interval between messages in milliseconds
+let intervalTime = parseInt(promptWithValidation("Enter interval time between messages (in milliseconds, e.g., 500):", "Message Sender"));
 
 // Select the input box
 let inputBox = document.querySelector('div[contenteditable="true"][data-tab="10"]');
@@ -15,7 +42,7 @@ function sendMessage(message, times, interval) {
     let intervalId = setInterval(() => {
         if (count >= times) {
             clearInterval(intervalId);
-            console.log("Done sending messages!");
+            console.log("%cDone sending messages!", "color: green; font-weight: bold;");
             return;
         }
 
@@ -31,6 +58,7 @@ function sendMessage(message, times, interval) {
         });
         inputBox.dispatchEvent(enterEvent);
 
+        console.log(`%c[${count+1}] Sent: ${message}`, "color: blue;");
         count++;
     }, interval); // Use user-defined interval
 }
