@@ -27,4 +27,4 @@ A simple script to send repeated messages on WhatsApp Web automatically using th
 
 ---
 
-##**Made by Nikku**
+##Made by Nikku
