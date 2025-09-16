@@ -1,11 +1,20 @@
-// Make sure the chat is open (your own or test account)
+// Ask user for message
+let messageText = prompt("Enter the message you want to send:");
+
+// Ask user how many times to send
+let repeatCount = parseInt(prompt("How many times do you want to send the message?"));
+
+// Ask user for interval between messages in milliseconds
+let intervalTime = parseInt(prompt("Enter interval time between messages (in milliseconds, e.g., 500):"));
+
+// Select the input box
 let inputBox = document.querySelector('div[contenteditable="true"][data-tab="10"]');
 
-function sendMessage(message, times) {
+function sendMessage(message, times, interval) {
     let count = 0;
-    let interval = setInterval(() => {
+    let intervalId = setInterval(() => {
         if (count >= times) {
-            clearInterval(interval);
+            clearInterval(intervalId);
             console.log("Done sending messages!");
             return;
         }
@@ -23,8 +32,8 @@ function sendMessage(message, times) {
         inputBox.dispatchEvent(enterEvent);
 
         count++;
-    }, 500); // 0.5s interval
+    }, interval); // Use user-defined interval
 }
 
-// Example: send "Hello!" 10 times
-sendMessage("Hello!", 10);
+// Call the function with user inputs
+sendMessage(messageText, repeatCount, intervalTime);
