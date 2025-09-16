@@ -26,5 +26,4 @@ A simple script to send repeated messages on WhatsApp Web automatically using th
 - Always get **permission from the recipient** before sending repeated messages.  
 
 ---
-
-##Made by Nikku
+## Made by Nikku
