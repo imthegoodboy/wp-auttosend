@@ -69,5 +69,5 @@ try {
     sendMessage(messageText, repeatCount, intervalTime);
 
 } catch (e) {
-    console.log(e.message); // User cancelled, stop script
+    console.log(e.message);  
 }
