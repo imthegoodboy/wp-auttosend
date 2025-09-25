@@ -1,4 +1,4 @@
-// Function to prompt with retry on empty input, but allow cancel
+ 
 function promptWithValidation(message, title = "Input Required") {
     let input;
     while (true) {
@@ -8,7 +8,7 @@ function promptWithValidation(message, title = "Input Required") {
 ${message}`);
         
         if (input === null) {
-            // User clicked cancel, exit the whole script
+            
             alert("Operation cancelled by user.");
             throw new Error("User cancelled the prompt.");
         }
@@ -27,16 +27,16 @@ Made by Nikku
 `;
 
 try {
-    // 1. Ask user for message with ASCII art
+   
     let messageText = promptWithValidation(`${asciiArt}\nEnter the message you want to send:`, "Message Sender");
 
-    // 2. Ask user how many times to send
+   
     let repeatCount = parseInt(promptWithValidation("How many times do you want to send the message?", "Message Sender"));
 
-    // 3. Ask user for interval between messages in milliseconds
+   
     let intervalTime = parseInt(promptWithValidation("Enter interval time between messages (in milliseconds, e.g., 500):", "Message Sender"));
 
-    // Select the input box
+ 
     let inputBox = document.querySelector('div[contenteditable="true"][data-tab="10"]');
 
     function sendMessage(message, times, interval) {
@@ -62,7 +62,7 @@ try {
 
             console.log(`%c[${count+1}] Sent: ${message}`, "color: blue;");
             count++;
-        }, interval); // Use user-defined interval
+        }, interval);  
     }
 
     // Call the function with user inputs
